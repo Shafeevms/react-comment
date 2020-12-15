@@ -36,3 +36,9 @@
   padding-top: 5px;
   border-top: 1px dashed gray;
 }
+
+.btn-remoove {
+  float: right;
+  background-color: red;
+  border-radius: 10px;
+}
