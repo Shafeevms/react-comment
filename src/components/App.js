@@ -13,10 +13,14 @@ class App extends React.Component {
     this.remove = this.remove.bind(this);
   }
 
+  componentDidMount() {
+    // проверить если что-то есть, то записать в стейт, если нет, то ничего
+    // if
+  }
   addComment(name, comment, date) {
     this.setState(
       {comments:[...this.state.comments, {name, comment, date, id:this.state.comments.length}]},
-      // () => {console.log(this.state)}
+      () => localStorage.setItem('comments', JSON.stringify(this.state.comments))
     ) 
   }
   remove(id) {
