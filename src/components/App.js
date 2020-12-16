@@ -14,8 +14,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // проверить если что-то есть, то записать в стейт, если нет, то ничего
-    // if
+    if (localStorage.getItem('comments')) {
+      this.setState({
+        comments: JSON.parse(localStorage.getItem('comments'))
+      })
+    }
   }
   addComment(name, comment, date) {
     this.setState(
@@ -28,7 +31,7 @@ class App extends React.Component {
     let newcomm = comments.filter(el => el.id !== id)
     this.setState({
       comments: newcomm
-    })
+    },  () => localStorage.setItem('comments', JSON.stringify(this.state.comments)))
   }
 
   render() {
